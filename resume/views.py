@@ -14,38 +14,26 @@ def about (request):
 def projects (request):
     projects_show=[
         {
-            'title': 'Rasoi Connect',
-            'path': 'images/rasoi_connect.PNG',
+            'title': 'Image Caption Generator',
+            'path': 'images/imagecaption.PNG',
         },
         {
             'title': 'Ecommerce',
-            'path': 'images/ecommerce.PNG',
+            'path': 'images/karobar.PNG',
         },
 
         {
-            'title': 'Timetable Scheduler',
-            'path': 'images/timtable.PNG',
+            'title': 'Kathmandu House Price Prediction',
+            'path': 'images/houseprice.jpg',
         },
         {
-            'title': 'CRUD',
-            'path': 'images/CRUD.PNG',
+            'title': 'Spam Email Detector',
+            'path': 'images/Spamemail.PNG',
         },
 
-         {
-            'title': 'Photo Uploader',
-            'path': 'images/photo_uploader.PNG',
-        },
-          {
-            'title': 'To do list',
-            'path': 'images/todolist.PNG',
-        },
          {
             'title': 'Portfolio',
-            'path': 'images/portfolio.PNG',
-        },
-                  {
-            'title': 'Labour Hiring',
-            'path': 'images\labour_hiring.PNG',
+            'path': 'images/biplovcv.PNG',
         },
 
     ]
@@ -72,12 +60,12 @@ def contact(request):
     return render (request,"contact.html")
 
 def resume(request):
-    resume_path="myapp/resume.pdf"
+    resume_path="myapp/biplovcv.pdf"
     resume_path=staticfiles_storage.path(resume_path)
     if staticfiles_storage.exists(resume_path):
         with open(resume_path,"rb") as resume_file:
             response=HttpResponse(resume_file.read(),content_type="application/pdf")
-            response['Content-Disposition']='attachment';filename="resume.pdf"
+            response['Content-Disposition']='attachment';filename="biplovcv.pdf"    
             return response
     else:
         return HttpResponse("resume not found", status=404)
